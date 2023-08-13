@@ -1,7 +1,7 @@
 <?php
 include("../../include/conexion.php");
-include("../include/busquedas.php");
-include("../include/funciones.php");
+include("../../include/busquedas.php");
+include("../../include/funciones.php");
 $usuario = $_POST['usuario'];
 $pass = $_POST['password'];
 

@@ -1,6 +1,7 @@
 <?php
 include '../../include/conexion.php';
-include '../include/busquedas.php';
+include "../../include/busquedas.php";
+include "../../include/funciones.php";
 
 
 $id_est = $_POST['id'];

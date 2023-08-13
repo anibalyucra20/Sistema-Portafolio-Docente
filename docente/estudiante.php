@@ -1,7 +1,7 @@
 <?php
 include("../include/conexion.php");
-include("include/busquedas.php");
-include("include/funciones.php");
+include("../include/busquedas.php");
+include("../include/funciones.php");
 
 include("include/verificar_sesion_secretaria.php");
 
@@ -204,7 +204,20 @@ if (!verificar_sesion($conexion)) {
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Año de Ingreso : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="date" class="form-control" name="anio_ingreso" required="required">
+                          <select name="anio_ingreso" id="" class="form-control" required="required">
+                            <?php
+                            $anio = date("Y");
+                            $anio_inicio = $anio -2;
+                            $anio_fin = $anio + 2;
+                            for ($i=$anio_inicio; $i < $anio_fin; $i++) { 
+                              ?>
+                              <option value="<?php echo $i;?>"><?php echo $i; ?></option>
+                              <?php
+                            }
+                            ?>
+                            
+                          </select>
+                          
                           <br>
                         </div>
                       </div>

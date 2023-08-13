@@ -6,7 +6,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     include '../../include/conexion.php';
-    include '../include/busquedas.php';
+    include "../../include/busquedas.php";
+    include "../../include/funciones.php";
 
     $resultado = buscarEstudianteByDni($conexion,$NIT);
     $dato = mysqli_fetch_array($resultado);

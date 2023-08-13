@@ -3,7 +3,8 @@
 try {
     include '../include/verificar_sesion_secretaria_operaciones.php';
     include "../../include/conexion.php";
-    include '../include/busquedas.php';
+    include "../../include/busquedas.php";
+include "../../include/funciones.php";
 } catch (PDOException $e) {
     echo "<script>alert('error al conectar con la base de datos');</script>";
 }

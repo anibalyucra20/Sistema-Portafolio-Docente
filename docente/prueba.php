@@ -1,7 +1,7 @@
 <?php
 include("../include/conexion.php");
-include("include/busquedas.php");
-include("include/funciones.php");
+include("../include/busquedas.php");
+include("../include/funciones.php");
 session_start();
 
 $b_per = buscarProgramacionByIdPeriodo($conexion, $_SESSION['periodo']);

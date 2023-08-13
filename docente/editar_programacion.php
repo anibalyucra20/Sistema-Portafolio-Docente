@@ -1,7 +1,8 @@
 <?php
 include 'include/verificar_sesion_secretaria.php';
 include '../include/conexion.php';
-include 'include/busquedas.php';
+include("../include/busquedas.php");
+include("../include/funciones.php");
 
 $id_programacion = $_GET['id'];
 $ejec_busc_prog = buscarProgramacionById($conexion, $id_programacion);

@@ -1,7 +1,8 @@
 <?php
 include '../include/verificar_sesion_docente_operaciones.php';
 include "../../include/conexion.php";
-include '../include/busquedas.php';
+include "../../include/busquedas.php";
+include "../../include/funciones.php";
 
 $id_prog = $_POST['id_prog'];
 $nro_calificacion = $_POST['nro_calificacion'];

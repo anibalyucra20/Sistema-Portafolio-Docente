@@ -1,8 +1,8 @@
 <?php
 session_start();
 include("../include/conexion.php");
-include("include/busquedas.php");
-include("include/funciones.php");
+include("../include/busquedas.php");
+include("../include/funciones.php");
 
 $id_cargo = buscar_rol_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
 

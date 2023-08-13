@@ -1,6 +1,7 @@
 <?php
 include '../../include/conexion.php';
-include '../include/busquedas.php';
+include "../../include/busquedas.php";
+include "../../include/funciones.php";
 
 if (isset($_POST['datos'])) {
     $arr_uds = $_POST['datos'];

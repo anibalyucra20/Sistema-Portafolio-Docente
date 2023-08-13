@@ -4,8 +4,8 @@
 include_once("../PHP_XLSXWriter/xlsxwriter.class.php");
 
 include("../include/conexion.php");
-include("include/busquedas.php");
-include("include/funciones.php");
+include("../include/busquedas.php");
+include("../include/funciones.php");
 include("include/verificar_sesion_docente_coordinador_secretaria.php");
 
 if (!verificar_sesion($conexion)) {

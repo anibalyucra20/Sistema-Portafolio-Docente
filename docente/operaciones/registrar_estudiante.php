@@ -1,8 +1,8 @@
 <?php
 
 include "../../include/conexion.php";
-include "../include/busquedas.php";
-include "../include/funciones.php";
+include "../../include/busquedas.php";
+include "../../include/funciones.php";
 include("../include/verificar_sesion_secretaria.php");
 if (!verificar_sesion($conexion)) {
 	echo "<script>
@@ -40,7 +40,7 @@ if ($conteo > 0) {
 	$pass = $dni."@huanta";
 	$pass_secure = password_hash($pass, PASSWORD_DEFAULT);
 
-	$insertar = "INSERT INTO estudiante (dni, apellidos_nombres, id_genero, fecha_nac, direccion, correo, telefono, anio_ingreso, id_programa_estudios, id_semestre, seccion, turno, discapacidad, password) VALUES ('$dni','$nom_ap','$genero', '$fecha_nac', '$direccion', '$email', '$telefono', '$anio_ingreso', '$carrera', '$semestre', '$seccion', '$turno', '$discapacidad', '$pass_secure')";
+	$insertar = "INSERT INTO estudiante (dni, apellidos_nombres, id_genero, fecha_nac, direccion, correo, telefono, anio_ingreso, id_programa_estudios, id_semestre, seccion, turno, discapacidad, password, reset_password, token_password) VALUES ('$dni','$nom_ap','$genero', '$fecha_nac', '$direccion', '$email', '$telefono', '$anio_ingreso', '$carrera', '$semestre', '$seccion', '$turno', '$discapacidad', '$pass_secure', 0, '')";
 	$ejecutar_insetar = mysqli_query($conexion, $insertar);
 	if ($ejecutar_insetar) {
 			echo "<script>
