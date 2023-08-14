@@ -1,16 +1,16 @@
 <?php
 include "../../include/conexion.php";
-include '../include/busquedas.php';
-include '../include/funciones.php';
+include '../../include/busquedas.php';
+include '../../include/funciones.php';
 
-$id_docente = $_GET['id'];
+$id_estudiante = $_GET['id'];
 $token = $_GET['token'];
 
 
-$b_doc = buscarDocenteById($conexion, $id_docente);
-$r_b_doc = mysqli_fetch_array($b_doc);
-$validar = $r_b_doc['reset_password'];
-$llave = $r_b_doc['token_password'];
+$b_estudiante = buscarEstudianteById($conexion, $id_estudiante);
+$r_b_estudiante = mysqli_fetch_array($b_estudiante);
+$validar = $r_b_estudiante['reset_password'];
+$llave = $r_b_estudiante['token_password'];
 if ($validar == 1 && password_verify($llave, $token)) {
   $mostrar = 1;
   
@@ -64,7 +64,7 @@ if ($mostrar) {
 
             <div>
               <input type="password" class="form-control" placeholder="Ingrese Nueva Contraseña" required="" name="new_password" maxlength="80" />
-              <input type="hidden" name="id" value="<?php echo $id_docente; ?>">
+              <input type="hidden" name="id" value="<?php echo $id_estudiante; ?>">
               <input type="hidden" name="token" value="<?php echo $token; ?>">
             </div>
             <div>

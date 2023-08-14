@@ -365,6 +365,10 @@ function buscarSesionLoginById($conexion, $id){
 	$sql = "SELECT * FROM sesion WHERE id='$id'";
 	return mysqli_query($conexion, $sql);
 }
+function buscarSesionEstudianteLoginById($conexion, $id){
+	$sql = "SELECT * FROM sesion_estudiante WHERE id='$id'";
+	return mysqli_query($conexion, $sql);
+}
 
 
 // -------------------------- FUNCIONES ACTUALIZAR --------------------------

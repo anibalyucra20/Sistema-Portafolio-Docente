@@ -1,7 +1,7 @@
 <?php
 include "../../include/conexion.php";
-include '../include/busquedas.php';
-include '../include/funciones.php';
+include '../../include/busquedas.php';
+include '../../include/funciones.php';
 
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
@@ -13,12 +13,12 @@ require '../../PHPMailer/PHPMailer.php';
 require '../../PHPMailer/SMTP.php';
 
 if (!isset($_POST['email'])&&!isset($_POST['dni'])) {
-    $id_sesion = $_SESSION['id_sesion'];
+    $id_sesion = $_SESSION['id_sesion_est'];
     $token = $_SESSION['token'];
-    $b_sesion = buscarSesionLoginById($conexion, $id_sesion);
+    $b_sesion = buscarSesionEstudianteLoginById($conexion, $id_sesion);
     $r_b_sesion = mysqli_fetch_array($b_sesion);
     if (password_verify($r_b_sesion['token'], $token)) {
-        $id_docente = buscar_docente_sesion($conexion, $id_sesion, $token);
+        $id_estudiante = buscar_estudiante_sesion($conexion, $id_sesion, $token);
         $enviar = 1;
     } else {
         $enviar = 0;
@@ -28,12 +28,12 @@ if (!isset($_POST['email'])&&!isset($_POST['dni'])) {
     $correo = $_POST['email'];
     $dni = $_POST['dni'];
 
-    $busc_user = "SELECT * FROM docente WHERE dni='$dni' AND correo='$correo'";
+    $busc_user = "SELECT * FROM estudiante WHERE dni='$dni' AND correo='$correo'";
     $ejec_busc_user = mysqli_query($conexion, $busc_user);
     $cont_user = mysqli_num_rows($ejec_busc_user);
     if ($cont_user > 0) {
         $res_busc_user = mysqli_fetch_array($ejec_busc_user);
-        $id_docente = $res_busc_user['id'];
+        $id_estudiante = $res_busc_user['id'];
         $enviar = 1;
     } else {
         $enviar = 0;
@@ -53,13 +53,16 @@ if ($enviar) {
     $b_datos_sistema = buscarDatosSistema($conexion);
     $r_b_datos_sistema = mysqli_fetch_array($b_datos_sistema);
 
+    $b_estudiante = buscarEstudianteById($conexion, $id_estudiante);
+    $r_b_estudiante = mysqli_fetch_array($b_estudiante);
+
     $b_docente = buscarDocenteById($conexion, $id_docente);
     $r_b_docente = mysqli_fetch_array($b_docente);
 
     //enviamos correo
 
 
-    $asunto = "Cambio de Contraseña SISPA (Sistema de Portafolio Academico)";
+    $asunto = "Cambio de Contraseña I.E.S.T.P. HUANTA";
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
 
@@ -77,7 +80,7 @@ if ($enviar) {
         $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
         //Recipients
         $mail->setFrom($r_b_datos_sistema['email_email'], $titulo_correo);
-        $mail->addAddress($r_b_docente['correo'], $r_b_docente['apellidos_nombres']);     //Add a recipient
+        $mail->addAddress($r_b_estudiante['correo'], $r_b_estudiante['apellidos_nombres']);     //Add a recipient
         //$mail->addAddress('ellen@example.com');               //Name is optional
         //$mail->addReplyTo('info@example.com', 'Information');
         //$mail->addCC('cc@example.com');
@@ -99,7 +102,7 @@ if ($enviar) {
                     <body>
                     <div style="width: 100%; font-family: Roboto; font-size: 0.8em; display: inline;">
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 10px 10px 0px 0px; text-align: center;">
-                            <img src="https://sispa.iestphuanta.edu.pe/img/logo.png" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;">
+                            <img src="https://sispa.iestphuanta.edu.pe/img/logo.png" alt="'.$r_b_datos_sistema['pagina'].'" style="padding: 0.5em; text-align: center;" height="50px">
                         </div>
                         <div style="background-color:'.$r_b_datos_sistema['color_correo'].'; border-radius: 0px 0px 0px 0px; height: 60px; margin-top: 0px; padding-top: 2px; padding-bottom: 10px;">
                             <p style="text-align: center; font-size: 1.0rem; color: #f1f1f1; text-shadow: 2px 2px 2px #cfcfcf; ">'.$r_b_datos_institucion['nombre_institucion'].'</p>
@@ -109,7 +112,7 @@ if ($enviar) {
                             <h3 style="text-align:center; color: #3c4858;">CAMBIO DE CONTRASEÑA</h3>
                             <p style="font-size:1.0rem; color: #2A2C2B; margin-top: 2em; margin-bottom: 2em; margin-left: 1.5em;">
                     
-                                Hola ' . $r_b_docente['apellidos_nombres'] . ', para poder recuperar tu contraseña, Haz click <a href="'.$r_b_datos_sistema['dominio_sistema'].'/admin/login/recuperar_password.php?id=' . $id_docente . '&token='.$token.'">Aquí</a>.<br>
+                                Hola ' . $r_b_estudiante['apellidos_nombres'] . ', para poder recuperar tu contraseña, Haz click <a href="'.$r_b_datos_sistema['dominio_sistema'].'/estudiante/login/recuperar_password.php?id=' . $id_estudiante . '&token='.$token.'">Aquí</a>.<br>
                                 
                                 
                                 <br>
@@ -137,7 +140,7 @@ if ($enviar) {
 
         $mail->send();
         //echo 'Correo enviado';
-        $sql = "UPDATE docente SET reset_password=1, token_password='$llave' WHERE id=$id_docente";
+        $sql = "UPDATE estudiante SET reset_password=1, token_password='$llave' WHERE id=$id_estudiante";
         $ejec_consulta = mysqli_query($conexion, $sql);
         echo "<script>
     alert('Verifique su correo, sino encuentra en su bandeja de entrada. Verifique en Seccion de Spam');

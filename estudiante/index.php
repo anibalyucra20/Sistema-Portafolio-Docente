@@ -1,8 +1,7 @@
 <?php
-
+session_start();
 if (!isset($_SESSION['id_sesion_est'])) {
 	echo "<script>
-			
 			window.location.replace('login/');
 		</script>
 		";
@@ -20,9 +19,9 @@ if (!isset($_SESSION['id_sesion_est'])) {
           </script>";
 	} else {
 
-		$id_docente_sesion = buscar_docente_sesion($conexion, $_SESSION['id_sesion'], $_SESSION['token']);
-		$b_docente = buscarDocenteById($conexion, $id_docente_sesion);
-		$r_b_docente = mysqli_fetch_array($b_docente);
+		$id_estudiante_sesion = buscar_estudiante_sesion($conexion, $_SESSION['id_sesion_est'], $_SESSION['token']);
+		$b_estudiante = buscarEstudianteById($conexion, $id_estudiante_sesion);
+		$r_b_estudiante = mysqli_fetch_array($b_estudiante);
 
 ?>
 		<!DOCTYPE html>
@@ -59,7 +58,7 @@ if (!isset($_SESSION['id_sesion_est'])) {
 			<div class="container body">
 				<div class="main_container">
 					<?php
-					include("include/menu_docente.php");
+					include("include/menu.php");
 
 					$b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
 					$r_b_per = mysqli_fetch_array($b_perido);
