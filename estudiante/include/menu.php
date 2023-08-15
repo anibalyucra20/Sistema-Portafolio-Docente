@@ -31,10 +31,13 @@
                 <ul class="nav side-menu">
                   <li><a href="../estudiante/"><i class="fa fa-home"></i>Inicio</a>
                   </li>
-                  <li><a><i class="fa fa-pencil-square-o"></i> Calificaciones <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-pencil-square-o"></i> Mi Matrícula <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li class="sub_menu"><a href="">Unidades Didácticas</a></li>
+                      <li class="sub_menu"><a href="mis_unidades_didacticas.php">Unidades Didácticas</a></li>
+                      <li class="sub_menu"><a href="ver_calificaciones.php">Calificaciones</a></li>
                     </ul>
+                  </li>
+                  <li><a href=""><i class="fa fa-graduation-cap"></i> Tutoría</a>
                   </li>
                 </ul>
               </div>

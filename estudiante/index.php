@@ -63,9 +63,11 @@ if (!isset($_SESSION['id_sesion_est'])) {
 					$b_perido = buscarPeriodoAcadById($conexion, $_SESSION['periodo']);
 					$r_b_per = mysqli_fetch_array($b_perido);
 
-					$b_progs = buscarProgramacionByIdDocentePeriodo($conexion, $id_docente_sesion, $_SESSION['periodo']);
-					$cont_prog = mysqli_num_rows($b_progs);
-
+					$b_matricula = buscarMatriculaByEstudiantePeriodo($conexion, $id_estudiante_sesion, $_SESSION['periodo']);
+					$r_b_matricula = mysqli_fetch_array($b_matricula);
+					$id_matricula = $r_b_matricula['id'];
+					$b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_matricula);
+					$cont_det_mat = mysqli_num_rows($b_det_mat);
 					?>
 					<!-- page content -->
 					<div class="right_col" role="main">
@@ -76,11 +78,10 @@ if (!isset($_SESSION['id_sesion_est'])) {
 								<div class="count"><?php echo $r_b_per['nombre']; ?></div>
 								<span class="count_bottom"><a href=""><i class="green">.</i></a></span>
 							</div>
-
 							<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 								<span class="count_top"><i class="fa fa-pencil-square-o"></i> Mis Unidades Didácticas</span>
-								<div class="count"><?php echo $cont_prog; ?></div>
-								<span class="count_bottom"><a href="calificaciones_unidades_didacticas.php"><i class="green">Ver</i></a></span>
+								<div class="count"><?php echo $cont_det_mat; ?></div>
+								<span class="count_bottom"><a href="mis_unidades_didacticas.php"><i class="green">Ver</i></a></span>
 							</div>
 
 
