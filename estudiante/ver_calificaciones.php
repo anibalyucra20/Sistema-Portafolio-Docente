@@ -280,7 +280,7 @@ if (!verificar_sesion($conexion)) {
                                             ?>
                                         </tbody>
                                     </table>
-                                    <center><a href="reportes_coordinador.php" class="btn btn-danger">Regresar</a></center>
+                                   
                                 </div>
 
 
