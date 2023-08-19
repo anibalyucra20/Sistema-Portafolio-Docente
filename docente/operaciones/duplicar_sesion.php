@@ -6,7 +6,7 @@ include("../include/verificar_sesion_docente_coordinador.php");
 if (!verificar_sesion($conexion)) {
 	echo "<script>
 				  alert('Error Usted no cuenta con permiso para acceder a esta página');
-				  window.location.replace('login/');
+				  window.location.replace('../login/');
 			  </script>";
   }else {
 $id_sesion = $_GET['data'];
