@@ -326,6 +326,10 @@ function buscarProgActividadesSilaboByIdSilabo($conexion, $id){
 	$sql = "SELECT * FROM programacion_actividades_silabo WHERE id_silabo='$id' ORDER BY semana";
 	return mysqli_query($conexion, $sql);
 }
+function buscarProgActividadesSilaboByIdSilabo_16($conexion, $id){
+	$sql = "SELECT * FROM programacion_actividades_silabo WHERE id_silabo='$id' ORDER BY semana LIMIT 16";
+	return mysqli_query($conexion, $sql);
+}
 function buscarProgActividadesSilaboByIdSilaboAndSemana($conexion, $idSilabo, $semana){
 	$sql = "SELECT * FROM programacion_actividades_silabo WHERE id_silabo='$idSilabo' AND semana='$semana'";
 	return mysqli_query($conexion, $sql);
