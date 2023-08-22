@@ -86,9 +86,12 @@ foreach ($detalle_matricula as $valor) {
                 $ejecutar_reg_evaluacion = mysqli_query($conexion, $reg_evaluacion);
 
                 $id_evaluacion = mysqli_insert_id($conexion);
-                $ponderado_c_evaluacion = round(100/5);
+
+                $cant_crit_eva = buscar_cantidad_criterios_programacion($conexion, $valor, $det_eva, $orden);
+                    
+                $ponderado_c_evaluacion = round(100 / $cant_crit_eva);
                 // registramos los 5 criterios de evaluacion para cada evaluacion
-                for ($j=1; $j <= 5; $j++) { 
+                for ($j=1; $j <= $cant_crit_eva; $j++) { 
                     $reg_criterio_evaluacion = "INSERT INTO criterio_evaluacion (id_evaluacion, orden, detalle, ponderado, calificacion) VALUES ('$id_evaluacion','$j','','$ponderado_c_evaluacion','')";
                     $ejecutar_reg_criterio_evaluacion = mysqli_query($conexion, $reg_criterio_evaluacion);
                 }
