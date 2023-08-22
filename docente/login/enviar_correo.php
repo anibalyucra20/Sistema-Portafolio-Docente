@@ -68,7 +68,7 @@ if ($enviar) {
         $mail->SMTPDebug = 1;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = $r_b_datos_sistema['host_email'];                     //Set the SMTP server to send through
-        $mail->SMTPAuth   = false;                                   //Enable SMTP authentication
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = $r_b_datos_sistema['email_email'];                     //SMTP username
         $mail->Password   = $r_b_datos_sistema['password_email'];                               //SMTP password
         $mail->SMTPSecure = 'STARTTLS';//PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
