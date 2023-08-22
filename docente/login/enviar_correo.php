@@ -71,7 +71,7 @@ if ($enviar) {
         $mail->SMTPAuth   = false;                                   //Enable SMTP authentication
         $mail->Username   = $r_b_datos_sistema['email_email'];                     //SMTP username
         $mail->Password   = $r_b_datos_sistema['password_email'];                               //SMTP password
-        $mail->SMTPSecure = 'STARTTLS';//PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->SMTPSecure = 'TLS';//PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
