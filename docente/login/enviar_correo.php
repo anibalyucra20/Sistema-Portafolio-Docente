@@ -5,10 +5,10 @@ include '../../include/funciones.php';
 
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//use PHPMailer\PHPMailer\Exception;
 
 //enviar correo
-require '../../PHPMailer/Exception.php';
+//require '../../PHPMailer/Exception.php';
 require '../../PHPMailer/PHPMailer.php';
 require '../../PHPMailer/SMTP.php';
 
@@ -71,7 +71,7 @@ if ($enviar) {
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = $r_b_datos_sistema['email_email'];                     //SMTP username
         $mail->Password   = $r_b_datos_sistema['password_email'];                               //SMTP password
-        $mail->SMTPSecure = 'TLS';//PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         $titulo_correo = 'SISPA '.$r_b_datos_sistema['titulo'];
