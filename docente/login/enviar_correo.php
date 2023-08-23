@@ -67,10 +67,10 @@ if ($enviar) {
         //Server settings
         $mail->SMTPDebug = 2;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host       = $r_b_datos_sistema['host_email'];                     //Set the SMTP server to send through
+        $mail->Host       = $r_b_datos_sistema['host_email'].'';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = $r_b_datos_sistema['email_email'];                     //SMTP username
-        $mail->Password   = $r_b_datos_sistema['password_email'];                               //SMTP password
+        $mail->Username   = $r_b_datos_sistema['email_email'].'';                     //SMTP username
+        $mail->Password   = $r_b_datos_sistema['password_email'].'';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = $r_b_datos_sistema['puerto_email'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
