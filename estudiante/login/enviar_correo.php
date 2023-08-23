@@ -94,6 +94,7 @@ if ($enviar) {
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->CharSet = 'UTF-8';
         $mail->Subject = $asunto;
+        $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'/docente/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
         $mail->Body = '<!DOCTYPE html>
                     <html lang="es">
                     <head>
@@ -112,7 +113,7 @@ if ($enviar) {
                             <h3 style="text-align:center; color: #3c4858;">CAMBIO DE CONTRASEÑA</h3>
                             <p style="font-size:1.0rem; color: #2A2C2B; margin-top: 2em; margin-bottom: 2em; margin-left: 1.5em;">
                     
-                                Hola ' . $r_b_estudiante['apellidos_nombres'] . ', para poder recuperar tu contraseña, Haz click <a href="'.$r_b_datos_sistema['dominio_sistema'].'/estudiante/login/recuperar_password.php?id=' . $id_estudiante . '&token='.$token.'">Aquí</a>.<br>
+                                Hola ' . $r_b_estudiante['apellidos_nombres'] . ', para poder recuperar tu contraseña, Haz click <a href="'.$link.'">Aquí</a>.<br>
                                 
                                 
                                 <br>

@@ -93,7 +93,7 @@ if ($enviar) {
         $mail->Subject = $asunto;
 
 
-        $link = $r_b_datos_sistema['dominio_sistema'].'/docente/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
+        $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'/docente/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
         $mail->Body = '<!DOCTYPE html>
                     <html lang="es">
                     <head>
