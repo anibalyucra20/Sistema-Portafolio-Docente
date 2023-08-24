@@ -38,7 +38,7 @@ if (!isset($_POST['email'])&&!isset($_POST['dni'])) {
     } else {
         $enviar = 0;
     }
-    echo $enviar;
+    //echo $enviar;
 }
 
 $llave = generar_llave();
@@ -65,7 +65,7 @@ if ($enviar) {
 
     try {
         //Server settings
-        $mail->SMTPDebug = 0;                      //Enable verbose debug output
+        $mail->SMTPDebug = 1;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = $r_b_datos_sistema['host_email'];                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
