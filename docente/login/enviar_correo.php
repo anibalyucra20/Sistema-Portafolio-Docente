@@ -3,6 +3,7 @@ include "../../include/conexion.php";
 include '../../include/busquedas.php';
 include '../../include/funciones.php';
 
+date_default_timezone_set("America/Lima"); 
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
