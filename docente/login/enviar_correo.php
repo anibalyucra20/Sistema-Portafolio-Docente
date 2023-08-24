@@ -5,10 +5,10 @@ include '../../include/funciones.php';
 
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//use PHPMailer\PHPMailer\Exception;
 
 //enviar correo
-require '../../PHPMailer/Exception.php';
+//require '../../PHPMailer/Exception.php';
 require '../../PHPMailer/PHPMailer.php';
 require '../../PHPMailer/SMTP.php';
 
@@ -65,7 +65,7 @@ if ($enviar) {
 
     try {
         //Server settings
-        $mail->SMTPDebug = 2;                      //Enable verbose debug output
+        $mail->SMTPDebug = 0;                      //Enable verbose debug output
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = $r_b_datos_sistema['host_email'];                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
