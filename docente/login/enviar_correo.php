@@ -144,7 +144,7 @@ if ($enviar) {
         $ejec_consulta = mysqli_query($conexion, $sql);
         echo "<script>
     alert('Verifique su correo, sino encuentra en su bandeja de entrada. Verifique en Seccion de Spam');
-    
+    window.location= '../index.php'
     </script>
     ";
     } catch (Exception $e) {
