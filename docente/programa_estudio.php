@@ -77,6 +77,7 @@ if (!verificar_sesion($conexion)) {
                           <th>Identificador</th>
                           <th>Código</th>
                           <th>Tipo</th>
+                          <th>Plan de Estudio</th>
                           <th>Nombre</th>
                           <th>Resolución</th>
                           <th>Acciones</th>
@@ -91,6 +92,7 @@ if (!verificar_sesion($conexion)) {
                           <td><?php echo $res_busc_carrera['id']; ?></td>
                           <td><?php echo $res_busc_carrera['codigo']; ?></td>
                           <td><?php echo $res_busc_carrera['tipo']; ?></td>
+                          <td><?php echo $res_busc_carrera['plan_estudio']; ?></td>
                           <td><?php echo $res_busc_carrera['nombre']; ?></td>
                           <td><?php echo $res_busc_carrera['resolucion']; ?></td>
                           <td>
@@ -141,6 +143,13 @@ if (!verificar_sesion($conexion)) {
                               <option value="Modular">Modular</option>
                               <option value="Empleabilidad">Empleabilidad</option>
                           </select>
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Plan de Estudios : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="plan_estudio" value="" required="required">
                           <br>
                         </div>
                       </div>

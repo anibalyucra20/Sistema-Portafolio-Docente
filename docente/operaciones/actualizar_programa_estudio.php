@@ -16,11 +16,12 @@ if (!verificar_sesion($conexion)) {
 $id = $_POST['id'];
 $codigo = $_POST['codigo'];
 $tipo = $_POST['tipo'];
+$plan_estudio = $_POST['plan_estudio'];
 $nombre = $_POST['nombre'];
 $resolucion = $_POST['resolucion'];
 $perfil = $_POST['perfil_egreso'];
 
-$consulta = "UPDATE programa_estudios SET codigo='$codigo', tipo='$tipo', nombre='$nombre', resolucion='$resolucion', perfil_egresado='$perfil' WHERE id=$id";
+$consulta = "UPDATE programa_estudios SET codigo='$codigo', tipo='$tipo', plan_estudio='$plan_estudio', nombre='$nombre', resolucion='$resolucion', perfil_egresado='$perfil' WHERE id=$id";
 $ejec_consulta = mysqli_query($conexion, $consulta);
 if ($ejec_consulta) {
 	echo "<script>

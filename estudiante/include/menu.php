@@ -1,4 +1,4 @@
-<div class="col-md-3 left_col">
+<div class="col-md-3 left_col menu_fixed">
   <div class="left_col scroll-view">
    
     <?php 
@@ -37,7 +37,9 @@
                       <li class="sub_menu"><a href="ver_calificaciones.php">Calificaciones</a></li>
                     </ul>
                   </li>
-                  <li><a href=""><i class="fa fa-graduation-cap"></i> Tutoría</a>
+                  <li><a href="tutoria.php"><i class="fa fa-graduation-cap"></i> Tutoría</a>
+                  </li>
+                  <li><a href="ficha_estudiante.php"><i class="fa fa-graduation-cap"></i> Ficha Estudiante</a>
                   </li>
                 </ul>
               </div>

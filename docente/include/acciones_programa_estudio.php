@@ -41,6 +41,13 @@
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Plan de Estudios : </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" name="plan_estudio" required="" value="<?php echo $res_busc_carrera['plan_estudio']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                          <br>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <input type="text" class="form-control" name="nombre" required="" value="<?php echo $res_busc_carrera['nombre']; ?>" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">

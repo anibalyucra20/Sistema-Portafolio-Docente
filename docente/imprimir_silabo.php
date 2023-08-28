@@ -230,6 +230,10 @@ function NbLines($w,$txt)
 	$pdf->Cell(80,6,utf8_decode("I.            INFORMACIÓN GENERAL"),0,1,'',0);
 	$pdf->Cell(70,6,utf8_decode('       Programa de Estudios'),0,0,'',0);
     $pdf->Cell(100,6,utf8_decode(": ".$r_b_pe['nombre']),0,1,'',0);
+    $pdf->Cell(70,6,utf8_decode('       Plan de Estudios'),0,0,'',0);
+    $pdf->Cell(100,6,utf8_decode(": ".$r_b_pe['plan_estudio']),0,1,'',0);
+    $pdf->Cell(70,6,utf8_decode('       Periodo Académico'),0,0,'',0);
+    $pdf->Cell(100,6,utf8_decode(": ".$r_b_perio['nombre']),0,1,'',0);
 	$pdf->Cell(70,6,utf8_decode('       Módulo'),0,0,'',0);
     //$pdf->Cell(100,6,utf8_decode(": ".$r_b_mod['descripcion']),0,1,'',0);
     $pdf->MultiCell(100,8,utf8_decode(": ".$r_b_mod['descripcion']),0,1,'',0);
