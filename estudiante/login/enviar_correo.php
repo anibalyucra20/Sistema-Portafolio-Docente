@@ -94,7 +94,7 @@ if ($enviar) {
         $mail->isHTML(true);                                  //Set email format to HTML
         $mail->CharSet = 'UTF-8';
         $mail->Subject = $asunto;
-        $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'/docente/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
+        $link = 'https://'.$r_b_datos_sistema['dominio_sistema'].'/estudiante/login/recuperar_password.php?id=' . $id_docente . '&token='.$token;
         $mail->Body = '<!DOCTYPE html>
                     <html lang="es">
                     <head>
