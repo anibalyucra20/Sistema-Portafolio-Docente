@@ -37,7 +37,7 @@ if (!verificar_sesion($conexion)) {
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Reportes<?php include("../include/header_title.php"); ?></title>
+        <title>Calificaciones<?php include("../include/header_title.php"); ?></title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
         <!-- Bootstrap -->

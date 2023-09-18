@@ -39,7 +39,7 @@ if (!verificar_sesion($conexion)) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>mis unidades didácticas<?php include("../include/header_title.php"); ?></title>
+        <title>Tutoría<?php include("../include/header_title.php"); ?></title>
         <!--icono en el titulo-->
         <link rel="shortcut icon" href="../img/favicon.ico">
         <!-- Bootstrap -->

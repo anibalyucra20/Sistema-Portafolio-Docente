@@ -86,7 +86,7 @@ function sesion_si_activa($conexion, $id_sesion, $token)
     $r_b_sesion = mysqli_fetch_array($b_sesion);
 
     $fecha_hora_fin_sesion = $r_b_sesion['fecha_hora_fin'];
-    $fecha_hora_fin = strtotime('+1 hour', strtotime($fecha_hora_fin_sesion));
+    $fecha_hora_fin = strtotime('+5 hour', strtotime($fecha_hora_fin_sesion));
     $fecha_hora_fin = date("Y-m-d H:i:s", $fecha_hora_fin);
 
     if ((password_verify($r_b_sesion['token'], $token)) && ($hora_actual <= $fecha_hora_fin)) {
@@ -108,7 +108,7 @@ function sesion_si_activa_estudiante($conexion, $id_sesion, $token)
     $r_b_sesion = mysqli_fetch_array($b_sesion);
 
     $fecha_hora_fin_sesion = $r_b_sesion['fecha_hora_fin'];
-    $fecha_hora_fin = strtotime('+1 hour', strtotime($fecha_hora_fin_sesion));
+    $fecha_hora_fin = strtotime('+5 hour', strtotime($fecha_hora_fin_sesion));
     $fecha_hora_fin = date("Y-m-d H:i:s", $fecha_hora_fin);
 
     if ((password_verify($r_b_sesion['token'], $token)) && ($hora_actual <= $fecha_hora_fin)) {

@@ -382,8 +382,8 @@ function buscarSesionEstudianteLoginById($conexion, $id){
 	return mysqli_query($conexion, $sql);
 }
 
-////TUTORIA
 
+////TUTORIA
 function buscarTutoriaByIdDocenteAndIdPeriodo($conexion, $id_docente, $id_periodo_acad){
 	$sql = "SELECT * FROM tutoria WHERE id_docente='$id_docente' AND id_periodo_acad='$id_periodo_acad'";
 	return mysqli_query($conexion, $sql);
