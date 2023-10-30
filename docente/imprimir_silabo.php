@@ -33,11 +33,22 @@ require '../fpdf185/fpdf.php';
 	{
 		function Header()
 		{
-			$this->Image('../img/cabeza.png', 5, 3, 190,);
+            $this->SetFillColor(201,201,201);
+            $this->SetFont('Arial','B',13);
+			$this->Cell(10,10,'MH',0,0,'C');
+			$this->Cell(15,10,utf8_decode('PERÚ'),0,0,'C', true);
+            $this->SetFont('Arial','B',10);
+			$this->Cell(45,10,utf8_decode('Minesterio de Educación'),0,0,'C', true);
+			$this->Cell(100,10,utf8_decode('Dirección Regional de Educación de AYACUCHO'),1,0,'C', true);
+            $this->Cell(6,10,'UA',1,0,'C');
+            $this->Cell(10,10,'LOGO',0,0,'C');
+            $this->Ln(15);
+			
+            /*$this->Image('../img/cabeza.png', 5, 3, 190,);
 			$this->SetFont('Arial','B',15);
 			$this->Cell(30);
 			$this->Cell(120,10, '',0,0,'C');
-			$this->Ln(20);
+			$this->Ln(20);*/
 		}
 		
 		function Footer()
@@ -45,6 +56,8 @@ require '../fpdf185/fpdf.php';
 			$this->SetY(-15);
 			$this->Image('../img/pie.png', 15, 278, 181);
 			$this->SetFont('Arial','B', 10);
+            /*$this->SetFillColor(147,178,72);
+			$this->Cell(175,10, utf8_decode('IESTPúb "HUANTA" - UNIDAD ACADÉMICA'),1,0,'L',true);*/
             $this->Cell(0,10, 'Pag. '.$this->PageNo().'             ',0,0,'R' );
             //$this->Cell(0,10, 'Pag. '.$this->PageNo().'/{nb}',0,0,'R' );
 		}

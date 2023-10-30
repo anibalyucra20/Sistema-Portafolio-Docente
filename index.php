@@ -5,21 +5,37 @@ if (file_exists($nombre_fichero)) {
 	echo "<script> window.location.replace('docente/'); </script>";
 } else {
 
-	if (isset($_POST['host'])) {$host = $_POST['host'];}else{$host = '';}
-	if (isset($_POST['db'])) {$db = $_POST['db'];}else{$db = '';}
-	if (isset($_POST['usuario'])) {$usuario = $_POST['usuario'];}else{$usuario = '';}
-	if (isset($_POST['password'])) {$password = $_POST['password'];}else{$password = '';}
+	if (isset($_POST['host'])) {
+		$host = $_POST['host'];
+	} else {
+		$host = '';
+	}
+	if (isset($_POST['db'])) {
+		$db = $_POST['db'];
+	} else {
+		$db = '';
+	}
+	if (isset($_POST['usuario'])) {
+		$usuario = $_POST['usuario'];
+	} else {
+		$usuario = '';
+	}
+	if (isset($_POST['password'])) {
+		$password = $_POST['password'];
+	} else {
+		$password = '';
+	}
 
 	if ($host != '' && $db != '') {
-		$conexion = mysqli_connect($host,$usuario,$password,$db);
+		$conexion = mysqli_connect($host, $usuario, $password, $db);
 		if ($conexion) {
 			$fh = fopen("include/conexion.php", 'w') or die("Se produjo un error al crear el archivo");
 			$texto = '<?php';
 			$texto .= '
-$host = "'.$host.'";
-$db = "'.$db.'";
-$user_db = "'.$usuario.'";
-$pass_db = "'.$password.'";
+$host = "' . $host . '";
+$db = "' . $db . '";
+$user_db = "' . $usuario . '";
+$pass_db = "' . $password . '";
 
 $conexion = mysqli_connect($host,$user_db,$pass_db,$db);
 
@@ -31,24 +47,21 @@ if ($conexion) {
 }
 $conexion->set_charset("utf8");
 ';
-		$texto .= '?>';
-		fwrite($fh, $texto) or die("No se pudo escribir en el archivo");
-		fclose($fh);
-		echo "<script>
+			$texto .= '?>';
+			fwrite($fh, $texto) or die("No se pudo escribir en el archivo");
+			fclose($fh);
+			echo "<script>
 			alert('Conexión Exitosa');
 			window.location.replace('index.php');
 		</script>
 		";
-		
-		}else{
+		} else {
 			echo "<script>
 			alert('Error de Conexión a la Base de datos, Intenta Nuevamente');
 			window.history.back();
 		</script>
 		";
-	
 		}
-		
 	}
 
 ?>
@@ -114,14 +127,15 @@ $conexion->set_charset("utf8");
 						</div>
 					</div>
 					<div class="separator">
-						
-						
-						
+
+
+
 					</div>
 
 					<div align="center">
 						<button type="submit" class="btn btn-primary">Verificar Conexión y Guardar</button>
 					</div>
+				</form>
 
 
 
