@@ -289,17 +289,20 @@ if (!verificar_sesion($conexion)) {
                                     }
 
                                     if ($r_b_mat['licencia'] != "") {
+                                      $si_falta = '';
                                       $si_licencia = ' readonly title="Licencia"';
                                       $nom_ap = '<font color="red">' . $r_b_est['apellidos_nombres'] . ' (Licencia)</font>';
                                       $dni = '<font color="red">' . $r_b_est['dni'] . '</font>';
                                       $fila = ' style="background-color:pink"';
                                     } elseif ($porcent_ina>=30) {
                                       $si_licencia = ' readonly title="Inasistencia mayor de 30%"';
+                                      $si_falta = 'si';
                                       $nom_ap = '<font color="red">' . $r_b_est['apellidos_nombres'] . '</font>';
                                       $dni = '<font color="red">' . $r_b_est['dni'] . '</font>';
                                       $fila = ' style="background-color:pink"';
                                     }else {
                                       $si_licencia = "";
+                                      $si_falta = '';
                                       $nom_ap = $r_b_est['apellidos_nombres'];
                                       $dni = $r_b_est['dni'];
                                       $fila = '';
@@ -372,11 +375,18 @@ if (!verificar_sesion($conexion)) {
                                         } else {
                                           $calificacion_e = "";
                                         }
-                                        if ($calificacion_e > 12) {
-                                          echo '<th><center><font color="blue">' . $calificacion_e . '</font></center></th>';
-                                        } else {
-                                          echo '<th><center><font color="red">' . $calificacion_e . '</font></center></th>';
+                                        if ($si_falta!='') {
+                                          echo '<th><center><font color="red">0</font></center></th>';
+                                        }elseif ($si_licencia!='') {
+                                          echo '<th><center><font></font></center></th>';
+                                        }else {
+                                          if ($calificacion_e > 12) {
+                                            echo '<th><center><font color="blue">' . $calificacion_e . '</font></center></th>';
+                                          } else {
+                                            echo '<th><center><font color="red">' . $calificacion_e . '</font></center></th>';
+                                          }
                                         }
+                                        
                                       }
 
                                       ?>

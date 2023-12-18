@@ -390,6 +390,17 @@ if (!($mostrar_archivo)) {
             $id_est = $r_b_mat['id_estudiante'];
             $b_est = buscarEstudianteById($conexion, $id_est);
             $r_b_est = mysqli_fetch_array($b_est);
+
+            $b_silabo = buscarSilaboByIdProgramacion($conexion, $id_prog);
+            $r_b_silabo = mysqli_fetch_array($b_silabo);
+
+            $cont_inasistencia = contar_inasistencia($conexion, $r_b_silabo['id'], $r_b_est['id']);
+            if ($cont_inasistencia > 0) {
+                $porcent_ina = round($cont_inasistencia * 100 / 16);
+            } else {
+                $porcent_ina = 0;
+            }
+
             $notass = '';
             if ($r_b_mat['licencia'] != "") {
                 $licencia = 1;
@@ -457,16 +468,25 @@ if (!($mostrar_archivo)) {
                 } else {
                     $recuperacion = '<td align="center" ><font color="red" size="10">' . $r_b_det_mat['recuperacion'] . '</font></td>';
                 }
+
+                if ($porcent_ina>30) {
+                    $calificacion = 0;
+                }else {
+                    # code...
+                }
                 if ($calificacion > 12) {
                     $promedio = '<td align="center" ><font color="blue" size="10">' . $calificacion . '</font></td>';
                 } else {
                     $promedio = '<td align="center" ><font color="red" size="10">' . $calificacion . '</font></td>';
                 }
+
+
                 if ($r_b_det_mat['recuperacion'] != '') {
                     $calificacion_final = $r_b_det_mat['recuperacion'];
                 } else {
                     $calificacion_final = $calificacion;
                 }
+                
                 if ($calificacion_final > 12) {
                     $promedio_final = '<td align="center" ><font color="blue" size="10">' . $calificacion_final . '</font></td>';
                 } else {
