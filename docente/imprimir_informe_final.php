@@ -92,16 +92,18 @@ if (!($mostrar_archivo)) {
 
     //calcular porcentaje de avance curricular segun el desarrollo de sesiones Y TEMAS DESARROLLADAS
     $ultima_sesion = 0;
+    $cantidad_sesiones = 0;
     $b_programacion_silabo = buscarProgActividadesSilaboByIdSilabo($conexion, $id_silabo);
     while ($r_b_prog_silabo = mysqli_fetch_array($b_programacion_silabo)) {
         $id_prog_silabo = $r_b_prog_silabo['id'];
         $b_sesion = buscarSesionByIdProgramacionActividades($conexion, $id_prog_silabo);
         $r_b_sesion = mysqli_fetch_array($b_sesion);
+        $cantidad_sesiones ++;
         if ($r_b_sesion['logro_sesion'] != ' ') {
             $ultima_sesion = $r_b_prog_silabo['semana'];
         }
     }
-    $porcentaje_avance = ($ultima_sesion/16)*100;
+    $porcentaje_avance = round(($ultima_sesion/$cantidad_sesiones)*100,2);
 
     // calcular la ultima sesion desarrollada
     $b_ult_programacion_silabo = buscarProgActividadesSilaboByIdSilaboAndSemana($conexion, $id_silabo, $ultima_sesion);
@@ -110,7 +112,7 @@ if (!($mostrar_archivo)) {
     // calcular sesiones no desarrolladas
     $temas_no_desarrolladas = '';
     $ult_sesion_no_desarrollada = $ultima_sesion +1;
-    for ($i=$ult_sesion_no_desarrollada; $i <= 16; $i++) { 
+    for ($i=$ult_sesion_no_desarrollada; $i <= $cantidad_sesiones; $i++) { 
         $b_prog_silabos = buscarProgActividadesSilaboByIdSilaboAndSemana($conexion, $id_silabo, $i);
         $r_b_prog_silabos = mysqli_fetch_array($b_prog_silabos);
         $temas_no_desarrolladas .= '        '.$r_b_prog_silabos['contenidos_basicos'].'<br>';
