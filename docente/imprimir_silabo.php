@@ -34,7 +34,7 @@ require '../fpdf185/fpdf.php';
 		function Header()
 		{
             $this->SetFillColor(201,201,201);
-            $this->SetFont('Arial','B',13);
+            /*$this->SetFont('Arial','B',13);
 			$this->Cell(10,10,'MH',0,0,'C');
 			$this->Cell(15,10,utf8_decode('PERÚ'),0,0,'C', true);
             $this->SetFont('Arial','B',10);
@@ -42,13 +42,13 @@ require '../fpdf185/fpdf.php';
 			$this->Cell(100,10,utf8_decode('Dirección Regional de Educación de AYACUCHO'),1,0,'C', true);
             $this->Cell(6,10,'UA',1,0,'C');
             $this->Cell(10,10,'LOGO',0,0,'C');
-            $this->Ln(15);
+            $this->Ln(15);*/
 			
-            /*$this->Image('../img/cabeza.png', 5, 3, 190,);
+            $this->Image('../img/cabeza.png', 5, 3, 190,);
 			$this->SetFont('Arial','B',15);
 			$this->Cell(30);
 			$this->Cell(120,10, '',0,0,'C');
-			$this->Ln(20);*/
+			$this->Ln(20);
 		}
 		
 		function Footer()
