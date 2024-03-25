@@ -120,6 +120,10 @@ function buscarUdById($conexion, $id){
 	$sql = "SELECT * FROM unidad_didactica WHERE id='$id'";
 	return mysqli_query($conexion, $sql);
 }
+function buscarUdByName($conexion, $nombre){
+	$sql = "SELECT * FROM unidad_didactica WHERE descripcion='$nombre'";
+	return mysqli_query($conexion, $sql);
+}
 function buscarUdByIdModulo($conexion, $id){
 	$sql = "SELECT * FROM unidad_didactica WHERE id_modulo='$id'";
 	return mysqli_query($conexion, $sql);
@@ -236,6 +240,10 @@ function buscarProgramacionEspecial($conexion, $extra){
 }
 function buscarProgramacionById($conexion, $id){
 	$sql = "SELECT * FROM programacion_unidad_didactica WHERE id='$id'";
+	return mysqli_query($conexion, $sql);
+}
+function buscarProgramacionByIdUd($conexion, $id){
+	$sql = "SELECT * FROM programacion_unidad_didactica WHERE id_unidad_didactica='$id'";
 	return mysqli_query($conexion, $sql);
 }
 function buscarProgramacionByIdDocente($conexion, $id){
