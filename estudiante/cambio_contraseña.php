@@ -89,7 +89,7 @@ if (!verificar_sesion($conexion)) {
                                                 </tbody>
                                             </table>
                                             <div align="center">
-                                                        <a class="btn btn-danger" href="estudiante.php"> Cancelar</a>
+                                                        <a class="btn btn-danger" href="index.php"> Cancelar</a>
                                                         <button type="submit" class="btn btn-success">Guardar</button>
                                                     </div>
                                         </form>
