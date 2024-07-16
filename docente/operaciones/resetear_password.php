@@ -1,5 +1,5 @@
 <?php
-$id_docente = $_POST['data'];
+$id_docente = $_GET['data'];
 
 include("../../include/conexion.php");
 include("../../include/busquedas.php");
