@@ -18,13 +18,7 @@ function contar_inasistencia($conexion, $id_silabo, $id_est)
     return $cont_inasistencia;
 }
 
-
-
-
-function generar_llave()
-{
-    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    function generate_string($input, $strength)
+function generate_string($input, $strength)
     {
         $input_length = strlen($input);
         $random_string = '';
@@ -34,6 +28,18 @@ function generar_llave()
         }
         return $random_string;
     }
+
+function generar_password()
+{
+    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $llave = generate_string($permitted_chars, 10);
+    return $llave;
+}
+
+
+function generar_llave()
+{
+    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $llave = generate_string($permitted_chars, 20);
     return $llave;
 }
