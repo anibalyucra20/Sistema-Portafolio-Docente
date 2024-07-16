@@ -44,7 +44,16 @@ if (!verificar_sesion($conexion)) {
 
     <!-- Custom Theme Style -->
     <link href="../Gentella/build/css/custom.min.css" rel="stylesheet">
-
+    <script>
+        function confirmarcambio() {
+          var r = confirm("Estas Seguro de Cambiar Contraseña?");
+          if (r == true) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      </script>
   </head>
 
   <body class="nav-md">
@@ -109,7 +118,9 @@ if (!verificar_sesion($conexion)) {
                           <td><?php echo $res_busc_carg['descripcion']; ?></td>
                           <td><?php if ($res_busc_doc['activo']== 0) { echo "NO";}else { echo "SI";} ?></td>
                           <td>
-                            <button class="btn btn-success" data-toggle="modal" data-target=".edit_<?php echo $res_busc_doc['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</button></td>
+                            <button class="btn btn-success" data-toggle="modal" data-target=".edit_<?php echo $res_busc_doc['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</button>
+                            <a title="Cambio de Contraseña" class="btn btn-primary" href="operaciones/resetear_password.php?data=<?php echo $res_busc_doc['id']; ?>" onclick="return confirmarcambio();"><i class="fa fa-key"></i></a>
+                          </td>
                         </tr>  
                         <?php
                          include('include/acciones_docentes.php');
