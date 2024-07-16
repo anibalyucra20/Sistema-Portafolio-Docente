@@ -22,7 +22,7 @@ if (!verificar_sesion($conexion)) {
     $ejec_consulta = mysqli_query($conexion, $sql);
     if ($ejec_consulta) {
         echo "<script>
-            alert('Contraseña actualizada es : ".$pass."');
+            alert('Su contraseña  fue actualizada a la siguiente : ".$pass."');
 			window.location= '../docentes.php';
 		</script>
 	";
