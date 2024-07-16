@@ -18,11 +18,11 @@ if (!verificar_sesion($conexion)) {
 
     $pass_secure = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE estudiante SET password='$pass_secure' WHERE id='$id_docente'";
+    $sql = "UPDATE docente SET password='$pass_secure' WHERE id='$id_docente'";
     $ejec_consulta = mysqli_query($conexion, $sql);
     if ($ejec_consulta) {
         echo "<script>
-            alert('Contraseña actualizada es : <b>".$pass."</b>');
+            alert('Contraseña actualizada es : ".$pass."');
 			window.location= '../docentes.php';
 		</script>
 	";
