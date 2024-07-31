@@ -117,7 +117,7 @@ if (!verificar_sesion($conexion)) {
                             <td><?php echo $res_busc_sem['descripcion']; ?></td>
                             <td>
                               <a class="btn btn-success" href="editar_estudiante.php?id=<?php echo $res_busc_est['id']; ?>"><i class="fa fa-pencil-square-o"></i> Editar</a>
-                              <a title="Cambio de Contraseña" class="btn btn-primary" href="operaciones/resetear_password_est.php?data=<?php echo $res_busc_doc['id']; ?>" onclick="return confirmarcambio();"><i class="fa fa-key"></i></a>
+                              <a title="Cambio de Contraseña" class="btn btn-primary" href="operaciones/resetear_password_est.php?data=<?php echo $res_busc_est['id']; ?>" onclick="return confirmarcambio();"><i class="fa fa-key"></i></a>
                             </td>
                           </tr>
                         <?php
