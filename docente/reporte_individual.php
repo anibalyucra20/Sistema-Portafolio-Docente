@@ -50,7 +50,7 @@ if (!verificar_sesion($conexion)) {
         }
         $cont_ind_capp += $cont_ind_logro_cap_ud;
     }
-    $total_columnas = $cont_ind_capp+ $cant_ud_mat+ 3;
+    $total_columnas = $cont_ind_capp + $cant_ud_mat + 3;
 ?>
     <!DOCTYPE html>
     <html lang="es">
@@ -120,7 +120,7 @@ if (!verificar_sesion($conexion)) {
                                                     <center>CALIFICACIONES - UNIDADES DIDÁCTICAS</center>
                                                 </th>
                                             </tr>
-                                            
+
                                             <tr>
                                                 <?php
                                                 $b_det_mat = buscarDetalleMatriculaByIdMatricula($conexion, $id_mat_est);
@@ -149,36 +149,38 @@ if (!verificar_sesion($conexion)) {
                                                 ?>
                                                     <th colspan="<?php echo $cont_ind_logro_cap_ud; ?>">
                                                         <p class="verticalll">
-                                                            <center><?php echo $r_b_udd['descripcion']."<br>S-".$r_b_semestre['descripcion']; ?></center>
+                                                            <center><?php echo $r_b_udd['descripcion'] . "<br>S-" . $r_b_semestre['descripcion']; ?></center>
                                                         </p>
                                                     </th>
                                                     <th>
                                                         <p class="verticalll">PROMEDIO</p>
                                                     </th>
-                                                    
+
                                                 <?php
                                                 }
                                                 ?>
                                                 <th>
-                                                        <p class="verticalll">Ptj. Total</p>
-                                                    </th>
-                                                    <th>
-                                                        <p class="verticalll">Ptj. Créditos</p>
-                                                    </th>
-                                                    <th>
-                                                        <p><center>CONDICIÓN</center></p>
-                                                    </th>
+                                                    <p class="verticalll">Ptj. Total</p>
+                                                </th>
+                                                <th>
+                                                    <p class="verticalll">Ptj. Créditos</p>
+                                                </th>
+                                                <th>
+                                                    <p>
+                                                        <center>CONDICIÓN</center>
+                                                    </p>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            
+
                                             //buscar estudiante para su id
                                             $b_est = buscarEstudianteById($conexion, $id_est);
                                             $r_b_est = mysqli_fetch_array($b_est);
 
                                             $b_ud_pe_sem = buscarUdByCarSem($conexion, $r_b_est['id_programa_estudios'], $r_b_est['id_semestre']);
-                                            $min_ud_desaprobar = round(mysqli_num_rows($b_ud_pe_sem)/2, 0, PHP_ROUND_HALF_DOWN);
+                                            $min_ud_desaprobar = round(mysqli_num_rows($b_ud_pe_sem) / 2, 0, PHP_ROUND_HALF_DOWN);
 
                                             ?>
                                             <tr>
@@ -249,10 +251,10 @@ if (!verificar_sesion($conexion)) {
                                                     }
                                                     if (is_numeric($calificacion)) {
                                                         $suma_califss += $calificacion;
-                                                        $suma_ptj_creditos += $calificacion*$r_bb_ud['creditos'];
-                                                      }else {
-                                                        $suma_ptj_creditos += 0*$r_bb_ud['creditos'];
-                                                      }
+                                                        $suma_ptj_creditos += $calificacion * $r_bb_ud['creditos'];
+                                                    } else {
+                                                        $suma_ptj_creditos += 0 * $r_bb_ud['creditos'];
+                                                    }
                                                 }
                                                 echo '<td align="center" ><font color="black">' . $suma_califss . '</font></td>';
                                                 echo '<td align="center" ><font color="black">' . $suma_ptj_creditos . '</font></td>';
@@ -313,19 +315,18 @@ if (!verificar_sesion($conexion)) {
                                                     // buscamos la sesion que corresponde
                                                     $id_act = $res_b_prog_act['id'];
                                                     $b_sesion = buscarSesionByIdProgramacionActividades($conexion, $id_act);
-                                                    while ($r_b_sesion = mysqli_fetch_array($b_sesion)) {
-                                                        $b_asistencia = buscarAsistenciaBySesionAndEstudiante($conexion, $r_b_sesion['id'], $id_est);
-                                                        $r_b_asistencia = mysqli_fetch_array($b_asistencia);
-                                                        $cont_asis += mysqli_num_rows($b_asistencia);
+                                                    $r_b_sesion = mysqli_fetch_array($b_sesion);
+                                                    $b_asistencia = buscarAsistenciaBySesionAndEstudiante($conexion, $r_b_sesion['id'], $id_est);
+                                                    $r_b_asistencia = mysqli_fetch_array($b_asistencia);
+                                                    $cont_asis += mysqli_num_rows($b_asistencia);
 
-                                                        if ($r_b_asistencia['asistencia'] == "P") {
-                                                            echo "<td><center><font color='blue'>" . $r_b_asistencia['asistencia'] . "</font></center></td>";
-                                                        } elseif ($r_b_asistencia['asistencia'] == "F") {
-                                                            echo "<td><center><font color='red'>" . $r_b_asistencia['asistencia'] . "</font></center></td>";
-                                                            $cont_inasistencia += 1;
-                                                        } else {
-                                                            echo "<td></td>";
-                                                        }
+                                                    if ($r_b_asistencia['asistencia'] == "P") {
+                                                        echo "<td><center><font color='blue'>" . $r_b_asistencia['asistencia'] . "</font></center></td>";
+                                                    } elseif ($r_b_asistencia['asistencia'] == "F") {
+                                                        echo "<td><center><font color='red'>" . $r_b_asistencia['asistencia'] . "</font></center></td>";
+                                                        $cont_inasistencia += 1;
+                                                    } else {
+                                                        echo "<td></td>";
                                                     }
                                                 }
                                                 if ($cont_inasistencia > 0) {
