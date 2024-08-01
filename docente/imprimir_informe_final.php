@@ -297,9 +297,7 @@ if (!($mostrar_archivo)) {
             <td width="10%"></td>
             <td width="50%" align="right"><img src="../img/logo.jpeg" alt="" height="30px"></td>
         </tr>
-        <tr>
-            <td colspan="3" align="center" ><font size="' . $text_size . '"><b>AÑO DE LA UNIDAD, LA PAZ Y EL DESARROLLO</b></font></td>
-        </tr>
+        
         <tr>
             <td colspan="3" align="center"><b>INFORME TÉCNICO - PEDAGÓGICO DEL SEMESTRE - '.$r_b_perio['nombre'].'</b></td>
         </tr>
