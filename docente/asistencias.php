@@ -184,6 +184,11 @@ if (!verificar_sesion($conexion)) {
                                 ?>
                                     <th>
                                       <p class="verticalll" id=""><?php echo $r_b_sesion['fecha_desarrollo']; ?></p>
+                                      <select id="asis_m_<?php echo base64_encode($r_b_sesion['id']); ?>" onchange="asistencia_masiva('<?php echo base64_encode($r_b_sesion['id']); ?>');">
+                                        <option value=""></option>
+                                        <option value="P">P</option>
+                                        <option value="F">F</option>
+                                      </select>*
                                     </th>
                                 <?php
                                   }
@@ -222,15 +227,19 @@ if (!verificar_sesion($conexion)) {
                                     $b_asistencia = buscarAsistenciaBySesionAndEstudiante($conexion, $r_b_sesion['id'], $r_b_matricula['id_estudiante']);
                                     $r_b_asistencia = mysqli_fetch_array($b_asistencia);
                                     if ($editar_doc == 0) {
-                                      if ($r_b_asistencia['asistencia'] == "P") {?>
-                                        <td><font color="blue"><?php echo $r_b_asistencia['asistencia']; ?></font></td>
-                                      <?php }elseif($r_b_asistencia['asistencia'] == "F") {?>
-                                        <td><font color="red"><?php echo $r_b_asistencia['asistencia']; ?></font></td>
-                                      <?php }else {?>
+                                      if ($r_b_asistencia['asistencia'] == "P") { ?>
+                                        <td>
+                                          <font color="blue"><?php echo $r_b_asistencia['asistencia']; ?></font>
+                                        </td>
+                                      <?php } elseif ($r_b_asistencia['asistencia'] == "F") { ?>
+                                        <td>
+                                          <font color="red"><?php echo $r_b_asistencia['asistencia']; ?></font>
+                                        </td>
+                                      <?php } else { ?>
                                         <td></td>
                                       <?php }
-                                ?>
-                                      
+                                      ?>
+
                                     <?php
                                     } else {
 
@@ -284,7 +293,7 @@ if (!verificar_sesion($conexion)) {
                           <?php if ($editar_doc) { ?>
                             <button type="submit" class="btn btn-success">Guardar</button>
                           <?php } ?>
-                          
+
                         </div>
                       </form>
 
@@ -362,6 +371,26 @@ if (!verificar_sesion($conexion)) {
 
         });
       </script>
+      <script type="text/javascript">
+        function asistencia_masiva(data) {
+          data2 = '<?php echo base64_encode($id_prog); ?>';
+          valor = document.getElementById('asis_m_' + data).value;
+          $.ajax({
+            type: "POST",
+            url: "operaciones/actualizar_asistencia_masiva.php",
+            data: {
+              ddata: data,
+              ddata2: data2,
+              asistencia: valor
+            },
+            success: function(r) {
+              location.reload();
+
+            }
+          });
+        }
+      </script>
+
 
 
 
