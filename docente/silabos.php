@@ -17,7 +17,7 @@ if (!verificar_sesion($conexion)) {
   $id_prog = $_GET['id'];
   $b_prog = buscarProgramacionById($conexion, $id_prog);
   $res_b_prog = mysqli_fetch_array($b_prog);
-  if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
+  /*if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
     //echo "<h1 align='center'>No tiene acceso a la evaluacion de la Unidad Didáctica</h1>";
     //echo "<br><h2><center><a href='javascript:history.back(-1);'>Regresar</a></center></h2>";
     echo "<script>
@@ -25,7 +25,7 @@ if (!verificar_sesion($conexion)) {
 			window.history.back();
 		</script>
 	";
-  } else {
+  } else {*/
 ?>
     <!DOCTYPE html>
     <html lang="es">
@@ -544,5 +544,5 @@ if (!verificar_sesion($conexion)) {
 
     </html>
 <?php
-  }
+  
 }
