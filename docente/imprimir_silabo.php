@@ -2,7 +2,7 @@
 include("../include/conexion.php");
 include("../include/busquedas.php");
 include("../include/funciones.php");
-include 'include/verificar_sesion_docente_coordinador.php';
+include 'include/verificar_sesion_docente_coordinador_secretaria.php';
 if (!verificar_sesion($conexion)) {
   echo "<script>
                 alert('Error Usted no cuenta con permiso para acceder a esta página');
@@ -17,7 +17,7 @@ if (!verificar_sesion($conexion)) {
 $id_prog = $_POST['data'];
 $b_prog = buscarProgramacionById($conexion, $id_prog);
 $res_b_prog = mysqli_fetch_array($b_prog);
-if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
+/*if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
     //echo "<h1 align='center'>No tiene acceso a la evaluacion de la Unidad Didáctica</h1>";
     //echo "<br><h2><center><a href='javascript:history.back(-1);'>Regresar</a></center></h2>";
     echo "<script>
@@ -25,7 +25,7 @@ if (!($res_b_prog['id_docente'] == $id_docente_sesion)) {
 			window.close();
 		</script>
 	";
-}else {
+}else {*/
 
 require '../fpdf185/fpdf.php';
 	
@@ -414,5 +414,5 @@ function NbLines($w,$txt)
 
 	$pdf->Output($titulo, 'I');
 
-}
+//}
 }
