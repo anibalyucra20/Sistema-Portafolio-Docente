@@ -83,6 +83,8 @@ if (!verificar_sesion($conexion)) {
             include("include/menu_docente.php");
           } elseif ($r_b_docente['id_cargo'] == 4) {
             include("include/menu_coordinador.php");
+          }elseif ($r_b_docente['id_cargo'] == 2) {
+            include("include/menu_secretaria.php");
           }
 
           $b_ud = buscarUdById($conexion, $res_b_prog['id_unidad_didactica']);
