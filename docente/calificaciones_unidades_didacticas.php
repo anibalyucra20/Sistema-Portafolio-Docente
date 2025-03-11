@@ -73,7 +73,7 @@ if (!verificar_sesion($conexion)) {
             $var_consulta = "WHERE id_docente=".$id_docente." AND id_periodo_acad=".$per_select;
           }elseif($r_b_docente['id_cargo']==2) { // si es secretario
             $m_caratula = 0;
-            $m_silabos = 0;
+            $m_silabos = 1;
             $m_sesiones = 0;
             $m_calificaciones = 1;
             $m_asistencia = 0;
