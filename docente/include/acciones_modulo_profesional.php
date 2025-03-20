@@ -26,7 +26,7 @@
                                 <?php $busc_pe = buscarCarreras($conexion);
                                 while ($res_busc_pes = mysqli_fetch_array($busc_pe)) {
                                 ?>
-                                <option value="<?php echo $res_busc_pes['id'];?>" <?php if($res_busc_pes['id'] == $id_prog_e){ echo "selected";} ?>><?php echo $res_busc_pes['nombre']; ?></option>
+                                <option value="<?php echo $res_busc_pes['id'];?>" <?php if($res_busc_pes['id'] == $id_prog_e){ echo "selected";} ?>><?php echo $res_busc_pes['nombre']." - ".$res_busc_pes['plan_estudio']; ?></option>
                                 <?php }; ?>
                           </select>
                           <br>
