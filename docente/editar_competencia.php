@@ -110,7 +110,7 @@ $id_p_e = $res_b_modulo['id_programa_estudio'];
                                 <option value="<?php echo $id_car_prof;
                                                 ?>" <?php if ($id_car_prof == $id_p_e) {
                                     echo 'selected="selected"';
-                                  }; ?>><?php echo $car_prof; ?></option>
+                                  }; ?>><?php echo $car_prof." - ".$res_busc_car_prof['plan_estudio']; ?></option>
                               <?php
                               }
                               ?>
