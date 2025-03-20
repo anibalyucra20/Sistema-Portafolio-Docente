@@ -94,7 +94,7 @@ if (!verificar_sesion($conexion)) {
                       ?>
                         <tr>
                           <td><?php echo $res_busc_mf['id']; ?></td>
-                          <td><?php echo $res_busc_pe['nombre']; ?></td>
+                          <td><?php echo $res_busc_pe['nombre']." - ".$res_busc_pe['plan_estudio']; ?></td>
                           <td><?php echo $res_busc_mf['nro_modulo']; ?></td>
                           <td><?php echo $res_busc_mf['descripcion']; ?></td>
                           <td>
