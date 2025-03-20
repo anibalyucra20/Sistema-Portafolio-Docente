@@ -138,9 +138,12 @@ if ($fecha_fin_per >= $fecha_actual) {
                           <td><?php echo $res_b_semestre['descripcion']; ?></td>
                           <td><?php echo $res_b_unidad_didactica['descripcion']; ?></td>
                           <td><?php echo $res_b_docente['apellidos_nombres']; ?></td>
+                          <td>
                           <?php if ($agregar == 1) {
-                            echo '<td><a class="btn btn-success" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a></td>';
+                            echo '<a class="btn btn-success" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a>
+                            <a class="btn btn-danger" href="eliminar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-trash"></i> </a>';
                           } ?>
+                          </td>
                         </tr>
                       <?php
                       };
