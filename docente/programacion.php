@@ -131,7 +131,7 @@ if ($fecha_fin_per >= $fecha_actual) {
                           $busc_docente = buscarDocenteById($conexion, $id_docente);
                           $res_b_docente = mysqli_fetch_array($busc_docente);
                           ?>
-                          <td><?php echo $res_busc_carrera['nombre']; ?></td>
+                          <td><?php echo $res_busc_carrera['nombre']. " - ".$res_busc_carrera['plan_estudio']; ?></td>
                           <?php
 
                           ?>
@@ -184,7 +184,7 @@ if ($fecha_fin_per >= $fecha_actual) {
                                           $carr = $res__busc_carr['nombre'];
                                         ?>
                                           <option value="<?php echo $id_carr;
-                                                          ?>"><?php echo $carr; ?></option>
+                                                          ?>"><?php echo $carr." - ".$res__busc_carr['plan_estudio']; ?></option>
                                         <?php
                                         }
                                         ?>
