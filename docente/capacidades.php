@@ -108,7 +108,7 @@ if (!verificar_sesion($conexion)) {
                           $ejec_busc_carrera = buscarCarrerasById($conexion, $id_carrera);
                           $res_busc_carrera =mysqli_fetch_array($ejec_busc_carrera);
                           ?>
-                          <td><?php echo $res_busc_carrera['nombre']; ?></td>
+                          <td><?php echo $res_busc_carrera['nombre']." - ".$res_busc_carrera['plan_estudio']; ?></td>
                           <?php 
                           
                           ?>
@@ -161,7 +161,7 @@ if (!verificar_sesion($conexion)) {
                               $carr = $res__busc_carr['nombre'];
                               ?>
                               <option value="<?php echo $id_carr;
-                              ?>"><?php echo $carr; ?></option>
+                              ?>"><?php echo $carr." - ".$res__busc_carr['plan_estudio']; ?></option>
                             <?php
                             }
                             ?>

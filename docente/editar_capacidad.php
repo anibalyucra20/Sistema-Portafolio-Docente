@@ -116,7 +116,7 @@ $res_busc_carrera = mysqli_fetch_array($ejec_busc_carrera);
                                 <option value="<?php echo $id_carr;
                                                 ?>" <?php if ($id_carr == $id_carrera) {
                                                       echo "selected";
-                                                    } ?>><?php echo $carr; ?></option>
+                                                    } ?>><?php echo $carr." - ".$res__busc_carr['plan_estudio']; ?></option>
                               <?php
                               }
                               ?>
