@@ -12,7 +12,7 @@ if (!verificar_sesion($conexion)) {
   }else {
 
 
-
+/*
 $id_detalle_mat = $_GET['data'];
 
 //buscar detalle de matricula
@@ -90,7 +90,7 @@ if ($ejec_d_det_mat) {
 		</script>
 	";
 }
-
+*/
 
 
   }
