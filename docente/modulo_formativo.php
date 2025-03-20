@@ -143,7 +143,7 @@ if (!verificar_sesion($conexion)) {
                                         $carr = $res__busc_carr['nombre'];
                                       ?>
                                         <option value="<?php echo $id_carr;
-                                                        ?>"><?php echo $carr; ?></option>
+                                                        ?>"><?php echo $carr." - ".$res__busc_carr['plan_estudio']; ?></option>
                                       <?php
                                       }
                                       ?>
