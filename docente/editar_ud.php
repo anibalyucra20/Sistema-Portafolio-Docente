@@ -112,11 +112,12 @@ $id_semestre = $res_busc_ud['id_semestre'];
                               while ($res_busc_car_prof = mysqli_fetch_array($ejec_busc_car_prof)) {
                                 $id_car_prof = $res_busc_car_prof['id'];
                                 $car_prof = $res_busc_car_prof['nombre'];
+                                
                               ?>
                                 <option value="<?php echo $id_car_prof;
                                                 ?>" <?php if ($id_car_prof == $id_carrera) {
                                     echo 'selected="selected"';
-                                  }; ?>><?php echo $car_prof; ?></option>
+                                  }; ?>><?php echo $car_prof." - ".$res_busc_car_prof['plan_estudio']; ?></option>
                               <?php
                               }
                               ?>
