@@ -60,7 +60,7 @@ if (!verificar_sesion($conexion)) {
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
       function confirmardelete() {
-        var r = confirm("Estas Seguro de Eliminar la sesion?");
+        var r = confirm("Estas Seguro de Eliminar la programacion?. Recuerde utilizar esta función solo si no existen estudiantes matriculados");
         if (r == true) {
           return true;
         } else {
@@ -150,7 +150,7 @@ if (!verificar_sesion($conexion)) {
                             <td>
                               <?php if ($agregar == 1) {
                                 echo '<a class="btn btn-success" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a>
-                            <a class="btn btn-danger" href="eliminar_programacion.php?id=' . $res_busc_programacion['id'] . '" onclick="return confirmardelete();"><i class="fa fa-trash"></i> </a>';
+                            <a class="btn btn-danger" href="eliminar_programacion.php?data=' . $res_busc_programacion['id'] . '" onclick="return confirmardelete();"><i class="fa fa-trash"></i> </a>';
                               } ?>
                             </td>
                           </tr>
