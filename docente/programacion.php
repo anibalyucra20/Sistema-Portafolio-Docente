@@ -150,7 +150,7 @@ if (!verificar_sesion($conexion)) {
                             <td>
                               <?php if ($agregar == 1) {
                                 echo '<a class="btn btn-success" href="editar_programacion.php?id=' . $res_busc_programacion['id'] . '"><i class="fa fa-pencil-square-o"></i> </a>
-                            <a class="btn btn-danger" href="eliminar_programacion.php?data=' . $res_busc_programacion['id'] . '" onclick="return confirmardelete();"><i class="fa fa-trash"></i> </a>';
+                            <a class="btn btn-danger" href="operaciones/eliminar_programacion.php?data=' . $res_busc_programacion['id'] . '" onclick="return confirmardelete();"><i class="fa fa-trash"></i> </a>';
                               } ?>
                             </td>
                           </tr>
