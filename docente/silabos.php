@@ -506,38 +506,6 @@ if (!verificar_sesion($conexion)) {
       <!-- para tags -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
-      <script>
-        $(document).ready(function() {
-          $('#example').DataTable({
-            "order": [
-              [1, "asc"]
-            ],
-            "language": {
-              "processing": "Procesando...",
-              "lengthMenu": "Mostrar _MENU_ registros",
-              "zeroRecords": "No se encontraron resultados",
-              "emptyTable": "Ningún dato disponible en esta tabla",
-              "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
-              "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-              "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-              "search": "Buscar:",
-              "infoThousands": ",",
-              "loadingRecords": "Cargando...",
-              "paginate": {
-                "first": "Primero",
-                "last": "Último",
-                "next": "Siguiente",
-                "previous": "Anterior"
-              },
-
-            }
-          });
-
-        });
-      </script>
-
-
-
 
       <?php mysqli_close($conexion); ?>
     </body>
