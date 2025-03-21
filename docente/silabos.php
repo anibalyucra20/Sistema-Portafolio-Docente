@@ -164,7 +164,7 @@ if (!verificar_sesion($conexion)) {
                                         $b_ud = buscarUdById($conexion, $id_ud);
                                         $res_b_ud = mysqli_fetch_array($b_ud);
 
-                                        $b_ud_nombre = buscarUdByName($conexion, $res_b_ud['descripcion']);
+                                        $b_ud_nombre = buscarUdByName($conexion, $r_b_ud['descripcion']);
                                         while ($r_b_ud_name = mysqli_fetch_array($b_ud_nombre)) {
                                           $id_uddd = $r_b_ud_name['id'];
                                           $b_prog_udd = buscarProgramacionByIdUd($conexion, $id_uddd);
