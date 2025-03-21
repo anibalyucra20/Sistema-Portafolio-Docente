@@ -478,8 +478,6 @@ if (!verificar_sesion($conexion)) {
       <script src="../Gentella/vendors/nprogress/nprogress.js"></script>
       <!-- bootstrap-progressbar -->
       <script src="../Gentella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-      <!-- iCheck -->
-      <script src=".../Gentella/vendors/iCheck/icheck.min.js"></script>
       <!-- bootstrap-daterangepicker -->
       <script src="../Gentella/vendors/moment/min/moment.min.js"></script>
       <script src="../Gentella/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
