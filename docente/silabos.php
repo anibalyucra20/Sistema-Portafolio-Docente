@@ -500,8 +500,7 @@ if (!verificar_sesion($conexion)) {
       <!-- starrr -->
       <script src="../Gentella/vendors/starrr/dist/starrr.js"></script>
 
-      <!-- Custom Theme Scripts -->
-      <script src="../Gentella/build/js/custom.min.js"></script>
+      
 
       <!-- para tags -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
