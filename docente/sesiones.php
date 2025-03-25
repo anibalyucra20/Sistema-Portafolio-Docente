@@ -169,26 +169,29 @@ if (!verificar_sesion($conexion)) {
                                           $b_ud_nombre = buscarUdByName($conexion, $res_b_ud['descripcion']);
                                           while ($r_b_ud_name = mysqli_fetch_array($b_ud_nombre)) {
                                             $id_uddd = $r_b_ud_name['id'];
+
                                             $b_prog_udd = buscarProgramacionByIdUd($conexion, $id_uddd);
-                                            $r_b_prog_udd = mysqli_fetch_array($b_prog_udd);
-                                            $id_prog_a_copiar = $r_b_prog_udd['id'];
+                                            while ($r_b_prog_udd = mysqli_fetch_array($b_prog_udd)) {
+                                              
+                                              $id_prog_a_copiar = $r_b_prog_udd['id'];
 
-                                            $b_prog_a_copiar = buscarProgramacionById($conexion, $id_prog_a_copiar);
-                                            $r_b_prog_a_copiar = mysqli_fetch_array($b_prog_a_copiar);
+                                              $b_prog_a_copiar = buscarProgramacionById($conexion, $id_prog_a_copiar);
+                                              $r_b_prog_a_copiar = mysqli_fetch_array($b_prog_a_copiar);
 
-                                            $b_periodo_acadd = buscarPeriodoAcadById($conexion, $r_b_prog_a_copiar['id_periodo_acad']);
-                                            $r_b_periodo_acadd = mysqli_fetch_array($b_periodo_acadd);
+                                              $b_periodo_acadd = buscarPeriodoAcadById($conexion, $r_b_prog_a_copiar['id_periodo_acad']);
+                                              $r_b_periodo_acadd = mysqli_fetch_array($b_periodo_acadd);
 
-                                            $id_carrera = $r_b_ud_name['id_programa_estudio'];
-                                            $ejec_busc_carrera = buscarCarrerasById($conexion, $id_carrera);
-                                            $res_busc_carrera = mysqli_fetch_array($ejec_busc_carrera);
+                                              $id_carrera = $r_b_ud_name['id_programa_estudio'];
+                                              $ejec_busc_carrera = buscarCarrerasById($conexion, $id_carrera);
+                                              $res_busc_carrera = mysqli_fetch_array($ejec_busc_carrera);
 
-                                            $id_semestre = $r_b_ud_name['id_semestre'];
-                                            $ejec_busc_semestre = buscarSemestreById($conexion, $id_semestre);
-                                            $res_busc_semestre = mysqli_fetch_array($ejec_busc_semestre);
+                                              $id_semestre = $r_b_ud_name['id_semestre'];
+                                              $ejec_busc_semestre = buscarSemestreById($conexion, $id_semestre);
+                                              $res_busc_semestre = mysqli_fetch_array($ejec_busc_semestre);
                                         ?>
-                                            <option value="<?php echo $id_prog_a_copiar; ?>"><?php echo $res_b_ud['descripcion'] . " - ".$res_busc_carrera['nombre'] . " - ". $res_busc_semestre['descripcion']. " - ". $r_b_periodo_acadd['nombre']; ?></option>
+                                              <option value="<?php echo $id_prog_a_copiar; ?>"><?php echo $res_b_ud['descripcion'] . " - " . $res_busc_carrera['nombre'] . " - " . $res_busc_semestre['descripcion'] . " - " . $r_b_periodo_acadd['nombre']; ?></option>
                                         <?php
+                                            }
                                           }
                                         };
                                         ?>
