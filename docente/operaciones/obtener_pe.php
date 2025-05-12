@@ -10,7 +10,7 @@ $id_est = $_POST['id'];
 
 		$cadena = '<option></option>';
 		while ($mostrar=mysqli_fetch_array($ejec_cons)) {
-			$cadena=$cadena.'<option value='.$mostrar['id'].' selected >'. $mostrar['nombre'].'</option>';
+			$cadena=$cadena.'<option value='.$mostrar['id'].' selected >'. $mostrar['nombre'].' - '.$mostrar['plan_estudio'].'</option>';
 		}
 		echo $cadena;
 
