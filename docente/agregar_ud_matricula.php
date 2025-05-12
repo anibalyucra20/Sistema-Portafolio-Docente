@@ -106,7 +106,7 @@ $id_mat = $_GET['data'];
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Programa de Estudios : </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" id="carrera_m" name="carrera_m" value="<?php echo $r_b_mat['id_programa_estudio']; ?>" required="required">
-                            <option value="<?php echo $r_b_mat['id_programa_estudio']; ?>" selected><?php echo $r_b_pe['nombre']; ?></option>
+                            <option value="<?php echo $r_b_mat['id_programa_estudio']; ?>" selected><?php echo $r_b_pe['nombre'].' - '.$r_b_pe['plan_estudio']; ?></option>
                           </select>
                           <br>
                         </div>
